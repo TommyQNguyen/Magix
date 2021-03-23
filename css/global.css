@@ -1,0 +1,129 @@
+* {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+html, body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:c18px;
+    /* background-image:url('../images/home-background.jpg');
+    background-size: cover;
+    background-position: bottom center; */
+
+    /* z-index: 0; */
+}
+
+.container {    
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.game-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/* .results-container {
+    background-color: #6a6;
+    height:576px;
+    flex-basis: 960px;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    font-size: 1.2em;
+    overflow:auto;
+} */
+
+/* .results-container div {
+    margin-bottom:10px;
+} */
+
+.save-form-section {
+    position: absolute;
+    bottom:20px;
+    width:100%;
+    text-align: center;
+    /* display:none; */
+}
+
+.save-form-section button {
+    background-image: url('../images/button.png');
+    border:0;
+    background-color: transparent;
+    text-align: center;
+    width: 249px;
+    height:69px;
+    color:white;
+    font-size:1.2em;
+    cursor: pointer;
+} 
+
+a {
+    font-size:20px;
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.error-div {
+	border: 1px solid red;
+	padding:5px;
+	border-radius: 3px;
+	background-color: pink;
+	margin-bottom: 20px;
+	color:red;
+}
+
+
+/* CSS Rajoute */
+.umbrella {
+    position: absolute;
+    background-image: url('../images/umbrella.png');
+    width: 100px;
+    height: 100px;
+}
+
+/* #umbrella-1 {
+    left: 0px;
+    bottom: 0px;
+}
+
+#umbrella-2 {
+    left:calc(80vw - 120px);
+    bottom:calc(50vh + 325px - 155px);
+}
+
+#umbrella-3 {
+    left:calc(15vw - 120px);
+    bottom:calc(50vh + 325px - 155px);
+} */
+
+.login-form-frame {
+	margin: 20px auto;
+	width:310px;
+	border-radius: 3px;
+	border:1px solid #6b5736;
+	background-color: #ddd;
+	padding:20px;
+	background: linear-gradient(white, #d1d1d1); 
+}
+
+#container {
+	margin:50px auto;
+	border:1px solid black;
+	width:500px;
+	height:300px;
+}
+
+canvas {
+    z-index: -100;
+}
+
+button {
+    z-index: 100;
+}
