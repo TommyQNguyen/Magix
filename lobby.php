@@ -1,4 +1,5 @@
-<script src="js/lobby.js"></script>
+<!-- Animation -->
+<!-- <script src="js/lobby.js"></script> -->
 
 <?php
 
@@ -11,43 +12,26 @@
 	var_dump($_SESSION);
 	echo '</pre>';
 
-    
-
     require_once("partials/header.php");
 ?>
 
-
-
     <div> Deja de retour... Alors, ce sera quoi aujourd'hui? </div>
 
-    
 
     <div id="container">
 		<canvas id="canvas">
 			Not gonna happen...
-
-
-
-
-
-
 		</canvas>
-        <button>Pratique</button>
-    <button>Jouer</button>
-    <button>Quitter</button>
+
+        <button><a href="?pratique=true">Pratique</a></button>
+        <button><a href="?jouer=true">Jouer</a></button>
+        <button>Quitter</button>
+
         <iframe style="width:700px;height:240px;" 
             src= <?= $data["chatboxSrc"] ?> >
         </iframe>
+
 	</div>
-
-
-
-    <!-- <iframe style="width:700px;height:240px;" 
-        src= <?= $data["chatboxSrc"] ?> >
-    </iframe> -->
-
-
-
 
 
 <?php
