@@ -1,5 +1,5 @@
 const state = () => {
-    fetch("ajax-state.php", {       // Il faut créer cette page et son contrôleur appelle 
+    fetch("ajaxState.php", {       // Il faut créer cette page et son contrôleur appelle 
         method : "POST",            // l’API (games/state)
         credentials: "include"
         })
@@ -9,6 +9,8 @@ const state = () => {
 
         setTimeout(state, 1000);    // Attendre 1 seconde avant de relancer l’appel
     })
+    .catch(console.log);
+    console.log("In game.js!!");
 }
 
 window.addEventListener("load", () => {

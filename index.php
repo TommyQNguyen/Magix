@@ -1,4 +1,4 @@
-<script src="js/javascript.js"></script>
+<!-- <script src="js/javascript.js"></script> -->
 
 <?php
 

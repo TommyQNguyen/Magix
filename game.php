@@ -1,3 +1,5 @@
+<!-- <script src="js/game.js"></script> -->
+
 <?php
 	require_once("action/GameAction.php");
 
