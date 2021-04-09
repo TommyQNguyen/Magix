@@ -1,0 +1,42 @@
+
+#enemy-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+#enemy-cards-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#enemy-details {
+    display: flex;
+}
+
+.enemy-hp, .enemy-user, .enemy-mp {
+    margin: 5px;
+}
+
+#player-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+#player-cards-container {
+	display: flex;
+	/* align-items:stretch; */
+	/* justify-content: center; */
+	/* width:1000px; */
+	/* margin:50px auto; */
+}
+
+.player-card {
+	border: 1px solid white;
+	background-color: plum;
+	/* padding:30px; */
+	/* text-align:center; */
+	margin:0 10px;
+	transition: 1s;
+	box-shadow: 0 0 10px white;
+}
+

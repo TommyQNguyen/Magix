@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Magix</title>
-        <link rel="stylesheet" rel="stylesheet" href="../css/global.css">
+        <!-- <link rel="stylesheet" rel="stylesheet" href="css/global.css"> -->
+		<link rel="stylesheet" rel="stylesheet" href="css/game.css">
         <!-- <script src="js/sprites/Mole.js"></script> -->
         <!-- <script src="js/sprites/Tractor.js"></script> -->
         <!-- <script src="js/javascript.js"></script> -->
@@ -13,13 +14,11 @@
 
     <div class="menu">
 		<ul>
-			<li><a href="index.php">Accueil du site</a></li>
-			<li><a href="login.php">Se connecter</a></li>
+			<li><a href="index.php">Page index.php</a></li>
 			<?php
 				if ($data["isLoggedIn"]) {
 					?>
-					<li><a href="home.php">Mon accueil perso</a></li>
-					<li><a href="profile.php">Mon profil</a></li>
+					<li><a href="lobby.php">Page Lobby.php</a></li>
 					<li><a href="?logout=true">Déconnexion</a></li>
 					<?php
 				}
