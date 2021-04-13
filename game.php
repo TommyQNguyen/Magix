@@ -1,5 +1,5 @@
 <script src="js/game.js"></script>
-<link rel="stylesheet" rel="stylesheet" href="css/game.css">
+
 
 <?php
 	require_once("action/GameAction.php");
@@ -33,9 +33,13 @@
 	</section>
 
 
+	<div id="enemy-board-cards-container"></div>
+
+	<div id="player-board-cards-container"></div>
+
+
 	<section id="player-section">
 		
-
 		<div id="player-details">
 			<div class="player-hp"></div>
 			<div class="player-mp"></div>
@@ -44,16 +48,22 @@
 
 
 		<div id="player-cards-container"></div>
+		
 
-		<template id="player-cards-template">
+		<div id="player-actions-container">
+			<button id="hero-power">Hero Power</button>
+			<button id="end-turn">End Turn</button>
+		</div>
+
+	</section>
+
+	<template id="cards-template">
 			<h2></h2>
 			<div class='attack'></div>
 			<div class='hp'></div>
 			<div class='cost'></div>
 			<div class='mechanics'></div>
 		</template>
-		
-	</section>
 
 
 <?php
