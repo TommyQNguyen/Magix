@@ -1,5 +1,5 @@
-<script src="js/game.js"></script>
-
+<script type="module" src="js/game.js"></script>
+<!-- <script type="module" src="js/playerAction.js"></script> -->
 
 <?php
 	require_once("action/GameAction.php");
@@ -18,6 +18,7 @@
 	<h3 id="remaining-turn-time">
 		Remaining turn time
 	</h3>
+	<h3 id="your-turn"></h3>
 
 	<section id="enemy-section">
 		<div id="enemy-cards-container"></div>

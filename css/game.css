@@ -41,6 +41,21 @@
     display: flex;
 }
 
+#player-board-cards-container {
+    display: flex;
+    justify-content: center;
+}
+
+.player-board-card {
+    border: 2px solid black;
+	background-color: mediumseagreen;
+	/* padding:30px; */
+	/* text-align:center; */
+	margin:0 10px;
+	transition: 1s;
+	box-shadow: 0 0 10px white;
+}
+
 #player-cards-container {
 	display: flex;
 	/* align-items:stretch; */

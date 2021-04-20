@@ -10,7 +10,6 @@
         protected function executeAction() {
             $key = $_SESSION["key"];
 
-
             // API Call
             $data = [];
             $data["key"] = $_SESSION["key"];
