@@ -44,11 +44,18 @@
                     return compact("result");
                     }
 
+                case "ATTACK": {
+                    $data = [];
+                    $data["key"] = $key;
+                    $data["type"] = $_POST["type"];
+                    $data["uid"] = $_POST["cardId"];
+                    $data["targetuid"] = $_POST["targetId"];
 
+                    $result = parent::callAPI("games/action", $data);
+
+                    return compact("result");
+                    }
 
             }
-
-
-
         }
     }

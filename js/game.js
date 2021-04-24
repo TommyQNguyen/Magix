@@ -1,3 +1,4 @@
+let attacker = "";
 
 const state = () => {
     fetch("ajaxState.php", {       // Il faut créer cette page et son contrôleur appelle 
@@ -46,25 +47,33 @@ const state = () => {
             NODE_ENEMY_BOARD.innerHTML = "";
 
             data.opponent.board.map( (enemyCard) => {
-                console.log(enemyCard);
-                let div = document.createElement("div");
-                div.className = "enemy-board-card";
-                div.innerHTML = templateHTML;
-                div.querySelector(".attack").innerText = `${enemyCard.atk}⚔️`;
-                div.querySelector(".hp").innerText = `${enemyCard.hp}❤️`;
-                div.querySelector(".cost").innerText = `${enemyCard.cost}⭐`;
+                // console.log(enemyCard);
+                let enemyBoardCard = document.createElement("div");
+                enemyBoardCard.className = "enemy-board-card";
+                enemyBoardCard.innerHTML = templateHTML;
+                enemyBoardCard.querySelector(".attack").innerText = `${enemyCard.atk}⚔️`;
+                enemyBoardCard.querySelector(".hp").innerText = `${enemyCard.hp}❤️`;
+                enemyBoardCard.querySelector(".cost").innerText = `${enemyCard.cost}⭐`;
 
                 const cardMechanics = enemyCard.mechanics.map (mechanic => mechanic);
+                enemyBoardCard.addEventListener("click", () => { 
+                    attackEvent(attacker, enemyCard.uid);
+                    // console.log(attacker, enemyCard.uid);
+                
+                });
 
-                div.querySelector(".mechanics").innerText = cardMechanics;
+                enemyBoardCard.querySelector(".mechanics").innerText = cardMechanics;
         
-                NODE_ENEMY_BOARD.append(div);
+                NODE_ENEMY_BOARD.append(enemyBoardCard);
             })
 
 
             // Enemy stats
-            document.querySelector(".enemy-hp").innerText = `${data.opponent.hp}❤️`;
             document.querySelector(".enemy-user").innerText = data.opponent.username;
+            document.querySelector(".enemy-user").addEventListener("click", () => { 
+                attackEvent(attacker, 0);
+            });
+            document.querySelector(".enemy-hp").innerText = `${data.opponent.hp}❤️`;
             document.querySelector(".enemy-mp").innerText = data.opponent.mp;
             document.querySelector(".enemy-remaining-cards").innerText = data.opponent.remainingCardsCount;
 
@@ -79,18 +88,21 @@ const state = () => {
             NODE_PLAYER_BOARD.innerHTML = "";
 
             data.board.map( (playerBoardCard) => {
-                let div = document.createElement("div");
-                div.className = "player-board-card";
-                div.innerHTML = templateHTML;
-                div.querySelector(".attack").innerText = playerBoardCard.atk;
-                div.querySelector(".hp").innerText = playerBoardCard.hp;
-                div.querySelector(".cost").innerText = playerBoardCard.cost;
+                let boardCard = document.createElement("div");
+                boardCard.className = "player-board-card";
+                boardCard.innerHTML = templateHTML;
+                boardCard.querySelector(".attack").innerText = playerBoardCard.atk;
+                boardCard.querySelector(".hp").innerText = playerBoardCard.hp;
+                boardCard.querySelector(".cost").innerText = playerBoardCard.cost;
 
                 const cardMechanics = playerBoardCard.mechanics.map (mechanic => mechanic);
+                boardCard.addEventListener("click", () => { 
+                    attacker = playerBoardCard.uid;                
+                });
 
-                div.querySelector(".mechanics").innerText = cardMechanics;
+                boardCard.querySelector(".mechanics").innerText = cardMechanics;
         
-                NODE_PLAYER_BOARD.append(div);
+                NODE_PLAYER_BOARD.append(boardCard);
             })
 
 
@@ -172,6 +184,26 @@ const playEvent = (cardId) => {
     let formData = new FormData();
     formData.append("type", "PLAY");
     formData.append("cardId", cardId);
+
+    fetch("ajaxPlayer.php", {       
+        method : "POST",            
+        credentials: "include",
+        body : formData,
+        })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);          // contient les cartes/état du jeu.
+    })
+    .catch(console.log);
+}
+
+const attackEvent = (cardId, targetId) => {
+
+    console.log("Starting attackEvent call");
+    let formData = new FormData();
+    formData.append("type", "ATTACK");
+    formData.append("cardId", cardId);
+    formData.append("targetId", targetId);
 
     fetch("ajaxPlayer.php", {       
         method : "POST",            
