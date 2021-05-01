@@ -35,10 +35,13 @@
 #player-section {
     display: flex;
     justify-content: space-between;
+	background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
 }
 
 #player-section #player-details {
     display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #player-board-cards-container {
@@ -53,7 +56,7 @@
 	/* text-align:center; */
 	margin:0 10px;
 	transition: 1s;
-	box-shadow: 0 0 10px white;
+	/* box-shadow: 0 0 10px white; */
 }
 
 #player-cards-container {
@@ -68,9 +71,25 @@
 	border: 2px solid black;
 	background-color: greenyellow;
 	/* padding:30px; */
-	/* text-align:center; */
+	text-align:center;
 	margin:0 10px;
 	transition: 1s;
-	box-shadow: 0 0 10px white;
+	/* box-shadow: 0 0 10px white; */
+	width: 140px;
+	height: 200px;
 }
 
+#player-actions-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#cards-template-stats-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card-template-photo {
+	width: 100px;
+}

@@ -95,6 +95,10 @@ const state = () => {
                 boardCard.querySelector(".hp").innerText = playerBoardCard.hp;
                 boardCard.querySelector(".cost").innerText = playerBoardCard.cost;
 
+                if (data.yourTurn && playerBoardCard.state !== "SLEEP") {
+                    boardCard.style.boxShadow = "5px 0px 50px 10px chartreuse";
+                }
+
                 const cardMechanics = playerBoardCard.mechanics.map (mechanic => mechanic);
                 boardCard.addEventListener("click", () => { 
                     attacker = playerBoardCard.uid;                
@@ -116,10 +120,28 @@ const state = () => {
                 card.innerHTML = templateHTML;
                 card.querySelector(".attack").innerText = `${playerCard.atk}⚔️`;
                 card.querySelector(".hp").innerText = `${playerCard.hp}❤️`;
-                card.querySelector(".cost").innerText = `${playerCard.cost}⭐`;
+                card.querySelector(".cost").innerText = `${playerCard.cost}🔮`;
+
+                const cardIsPlayable = data.yourTurn && playerCard.cost <= data.mp;
+
+                if (cardIsPlayable) {
+                    card.style.boxShadow = "5px 0px 50px 10px chartreuse"
+                }
 
                 const cardMechanics = playerCard.mechanics.map(mechanic => mechanic);
+
+                if (playerCard.mechanics[0] === "Taunt") {
+                    card.querySelector(".card-template-photo").src = "images/taunt.png";
+                }
+                else if (playerCard.mechanics[0] === "Charge") {
+                    card.querySelector(".card-template-photo").src = "images/charge.webp";
+                }
+                
+                // card.querySelector(".card-template-photo").src = "images/taunt.png";
+                
                 card.querySelector(".mechanics").innerText = cardMechanics;
+
+
                 card.addEventListener("click", () => { playEvent(playerCard.uid); console.log(playerCard.uid)});
 
                 NODE_PLAYER_CARDS.append(card);

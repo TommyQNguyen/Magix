@@ -33,11 +33,9 @@
 
 	</section>
 
-
 	<div id="enemy-board-cards-container"></div>
 
 	<div id="player-board-cards-container"></div>
-
 
 	<section id="player-section">
 		
@@ -47,10 +45,8 @@
 			<div class="player-remaining-cards"></div>
 		</div>
 
-
 		<div id="player-cards-container"></div>
 		
-
 		<div id="player-actions-container">
 			<button id="hero-power">Hero Power</button>
 			<button id="end-turn">End Turn</button>
@@ -59,12 +55,17 @@
 	</section>
 
 	<template id="cards-template">
-			<h2></h2>
+		<img class="card-template-photo"/>
+		<h2></h2>
+		<div id="cards-template-stats-container">
 			<div class='attack'></div>
 			<div class='hp'></div>
 			<div class='cost'></div>
-			<div class='mechanics'></div>
-		</template>
+		</div>
+		<!-- <img class="card-template-photo"/> -->
+		<div class='mechanics'></div>
+		
+	</template>
 
 
 <?php
