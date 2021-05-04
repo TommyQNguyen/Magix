@@ -1,0 +1,13 @@
+#blog-wrapper {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+main {
+    flex: 2;
+}
+
+aside {
+    flex: 1;
+}

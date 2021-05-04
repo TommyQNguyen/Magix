@@ -12,7 +12,7 @@
 
             $blogPosts = UserDAO::getBlogPosts();
 
-            var_dump($blogPosts);
+            // var_dump($blogPosts);
             // return [];
             return compact("blogPosts");
         }
