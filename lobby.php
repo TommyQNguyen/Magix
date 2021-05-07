@@ -9,7 +9,7 @@
     $data = $action->execute();
 
     echo '<pre>';
-	var_dump($_SESSION);
+	// var_dump($_SESSION);
 	echo '</pre>';
 
     require_once("partials/header.php");

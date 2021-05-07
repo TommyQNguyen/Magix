@@ -10,7 +10,11 @@
 
         protected function executeAction() {
 
-            $blogPosts = UserDAO::getBlogPosts();
+            if (isset($_GET["idToDelete"])) {
+				BlogDAO::deleteBlogPost($_GET["idToDelete"]);
+			}
+
+            $blogPosts = BlogDAO::getBlogPosts();
 
             // var_dump($blogPosts);
             // return [];
