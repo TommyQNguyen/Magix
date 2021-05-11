@@ -12,7 +12,17 @@
             // $key = $_SESSION["key"];
 
             // $chatboxSrc = "https://magix.apps-de-cours.com/server/#/chat/" . $key;
+			$key = $_SESSION["key"];
 
-			return [];
+            // API Call
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+
+            $result = parent::callAPI("games/state", $data);
+			// var_dump($result);
+
+            return compact("result");
+
+			// return [];
 		}
 	}

@@ -29,6 +29,42 @@
                         }
                     }
             ?>
+
+
+                    <div id="comment-section-title">Les commentaires sur cet article</div>
+            <?php
+                    foreach ($data["comments"] as $comment) {
+                        if ($comment["blogID"] == $_GET["id"]) {
+                            ?>
+                            <!-- <div > <?= $comment["blogID"] ?> </div>
+                            <div > <?= $_GET["id"] ?> </div> -->
+
+                            <div class="comment-section">
+                                
+                                <div id="commenter">Par: <?= $comment["commenter"] ?> </div>
+                                <div id="blog-comment"> <?= $comment["comment"] ?> </div>
+                                
+                            </div>
+            <?php
+                        }
+                    }
+            ?>
+
+                <form id="comment-form" action="blog.php" method="get">
+                    <div id="comment-form-title">Ajouter votre commentaire:</div>
+                    <!-- <div > <?= $_GET["id"] ?> </div>  -->
+
+                    <label id="comment-form-id">ID de commentaire: </label>
+                    <textarea readonly id="form-comment-id" name="id" cols="3" rows="1"><?= $_GET["id"] ?></textarea>
+
+                    <label id="label-commenter">Nom: </label>
+                    <textarea id="textarea-commenter" name="commenter-name" cols="3" rows="1"></textarea>
+
+                    <label id="label-comment">Commentaire: </label>
+                    <textarea id="textarea-comment" name="commenter-comment" cols="30" rows="10"></textarea>
+
+                    <button id="button-save-comment">Envoyer</button>
+                </form>
         </main>
 
         <aside class="blog-summary-container">

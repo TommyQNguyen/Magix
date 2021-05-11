@@ -1,5 +1,7 @@
 #blog-body {
     background-image: url("../images/pinkmarble.jpg");
+    display: flex;
+    justify-content: space-between;
 }
 
 #blog-wrapper {
@@ -55,6 +57,59 @@ main {
     color: floralwhite;
 }
 
+#comment-section-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.comment-section {
+    border: 1px solid darkslategrey;
+    margin: 20px;
+    line-height: 1.6;
+    padding: 10px;
+}
+
+#commenter {
+    font-weight: bold;
+}
+
+#comment-form {
+    /* border: 2px solid royalblue; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+#comment-form-title {
+    font-size: 24px;
+    color: deeppink;
+    border-bottom: 2px solid darkslategrey;
+    font-weight: 500;
+}
+
+#label-commenter, #label-comment {
+    text-align: center;
+    color: darkmagenta;
+    font-size: 15px;
+}
+
+#comment-form-id, #form-comment-id {
+    display: none;
+}
+
+#button-save-comment {
+    background-color: deeppink;
+    color: white;
+    padding: 25px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#button-save-comment:hover {
+    background-color: gainsboro;
+    color: dodgerblue;
+}
+
 aside {
     flex: 1;
     border: 1px solid aliceblue;
@@ -81,6 +136,7 @@ aside {
 .blog-summary-article a:hover {
     color: white;
 }
+
 
 
 

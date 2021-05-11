@@ -62,6 +62,8 @@ const state = () => {
                 
                 });
 
+                document.querySelector("#enemy-avatar").src = "images/enemy-avatar.jpg";
+
                 enemyBoardCard.querySelector(".mechanics").innerText = cardMechanics;
         
                 NODE_ENEMY_BOARD.append(enemyBoardCard);
@@ -74,7 +76,7 @@ const state = () => {
                 attackEvent(attacker, 0);
             });
             document.querySelector(".enemy-hp").innerText = `${data.opponent.hp}❤️`;
-            document.querySelector(".enemy-mp").innerText = data.opponent.mp;
+            document.querySelector(".enemy-mp").innerText = `${data.opponent.mp} MP`;
             document.querySelector(".enemy-remaining-cards").innerText = data.opponent.remainingCardsCount;
 
 
@@ -151,6 +153,10 @@ const state = () => {
             document.querySelector(".player-hp").innerText = `${data.hp}❤️`;
             document.querySelector(".player-mp").innerText = `${data.mp} MP`;
             document.querySelector(".player-remaining-cards").innerText = `${data.remainingCardsCount} cards remaining`;
+    }
+    else if (data ) {
+        document.querySelector("#game-status").innerText = "GAME LOST";
+        console.log("Game is lost dammit");
     }
 
 

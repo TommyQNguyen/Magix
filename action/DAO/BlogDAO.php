@@ -47,7 +47,35 @@
             $statement->execute();
         }
 
+/* ----------------------------------------Section Commentaires----------------------------------------------------- */
+
+        public static function getBlogComments() {
+            $connection = Connection::getConnection();
+
+            $statement = $connection->prepare("SELECT * FROM comments");
+            $statement->setFetchMode(PDO::FETCH_ASSOC); // <-- Permet de retourner un dictionnaire, ex: $row["username"], au lieu de $row[1]
+            $statement->execute();
+
+            $comments = $statement->fetchAll();
+
+            return $comments;
+        }
+
+        public static function addComment($name, $content, $blogID) {
+            $connection = Connection::getConnection();
+
+            $statement = $connection->prepare("INSERT INTO comments(commenter, comment, blogID) VALUES (?, ?, ?);");
+            $statement->bindParam(1, $name);
+            $statement->bindParam(2, $content);
+            $statement->bindParam(3, $blogID);
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+        }
+
         public static function updateProfile($user) {
             $connection = Connection::getConnection();
         }
+
+
+
     }

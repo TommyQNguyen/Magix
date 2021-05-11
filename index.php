@@ -1,4 +1,4 @@
-<!-- <script src="js/javascript.js"></script> -->
+<script src="js/javascript.js"></script>
 
 <?php
 
@@ -7,15 +7,15 @@
     $action = new IndexAction();
     $data = $action->execute();
 
-    echo '<pre>';
-	var_dump($_SESSION);
-	echo '</pre>';
+    // echo '<pre>';
+	// var_dump($_SESSION);
+	// echo '</pre>';
 
     require_once("partials/header.php");
 ?>
 
 
-    <!-- <div class="game-container"> -->
+    <body id="index-body">
 
         <!-- <span> <?=$data["test"]?> </span> -->
 
@@ -50,11 +50,13 @@
                     &nbsp;
                 </div>
                 <div class="form-input">
-                    <button type="submit">Connexion</button>
+                    <button id="index-button" type="submit">Connexion</button>
                 </div>
                 <div class="form-separator"></div>
             </form>
         </div>
+
+    </body>
 
 <?php
     require_once("partials/footer.php");

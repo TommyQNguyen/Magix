@@ -40,11 +40,11 @@
                     // err
 					$hasConnectionError = true;
                     // $hello = "INVALID_USERNAME_PASSWORD!";
-                    var_dump($result);
+                    // var_dump($result);
                 }
                 else {
                     // Pour voir les informations retournées : var_dump($result);exit;
-                    var_dump($result);
+                    // var_dump($result);
 
 					// $_SESSION["username"] = $user["username"];
 					// $_SESSION["visibility"] = $user["visibility"];
@@ -56,7 +56,7 @@
 					$_SESSION["key"] =  $key;
 
                     $key = $result->key;
-                    var_dump($key);
+                    // var_dump($key);
                     // exit;
 
 					

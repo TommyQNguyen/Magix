@@ -10,14 +10,21 @@
 
         protected function executeAction() {
 
+            $blogPosts = BlogDAO::getBlogPosts();
+            $comments = BlogDAO::getBlogComments();
+
             if (isset($_GET["idToDelete"])) {
 				BlogDAO::deleteBlogPost($_GET["idToDelete"]);
 			}
 
-            $blogPosts = BlogDAO::getBlogPosts();
+            if (!empty($_GET["commenter-name"]) && !empty($_GET["commenter-comment"])) {
+                BlogDAO::addComment($_GET["commenter-name"], $_GET["commenter-comment"], $_GET["id"]);
+                // $savedSuccessfully = true;
+            }
 
-            // var_dump($blogPosts);
+            // var_dump($comments);
+            // var_dump($_GET["id"]);
             // return [];
-            return compact("blogPosts");
+            return compact("blogPosts", "comments");
         }
     }

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Magix</title>
-        <!-- <link rel="stylesheet" rel="stylesheet" href="css/global.css"> -->
+        <link rel="stylesheet" href="css/global.css?v=<?php echo time(); ?>">
 		<!-- <link rel="stylesheet" rel="stylesheet" href="css/game.css"> -->
 		<link rel="stylesheet" href="css/game.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="css/blog.css?v=<?php echo time(); ?>">
