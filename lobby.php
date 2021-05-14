@@ -1,5 +1,6 @@
 <!-- Animation -->
-<!-- <script src="js/lobby.js"></script> -->
+<script src="js/lobby.js"></script>
+<link rel="stylesheet" href="css/lobby.css?v=<?php echo time(); ?>">
 
 <?php
 
@@ -15,24 +16,34 @@
     require_once("partials/header.php");
 ?>
 
-    <div> Deja de retour... Alors, ce sera quoi aujourd'hui? </div>
+<body id="body-lobby">
+
+    <div id="lobby-welcome"> Deja de retour... Alors, ce sera quoi aujourd'hui? </div>
 
 
-    <div id="container">
-		<canvas id="canvas">
-			Not gonna happen...
-		</canvas>
+    <div id="lobby-container">
+		
 
-        <button><a href="?pratique=true">Pratique</a></button>
-        <button><a href="?jouer=true">Jouer</a></button>
-        <button>Quitter</button>
+        <div class="lobby-button-container">
+            <button><a href="?pratique=true">Pratique</a></button>
+            <button><a href="?jouer=true">Jouer</a></button>
+            <button><a href="?logout=true">Quitter</a></button>
+        </div>
 
-        <iframe style="width:700px;height:240px;" 
-            src= <?= $data["chatboxSrc"] ?> >
+        <iframe 
+            style="width:700px;height:562px;" 
+            src=<?= $data["chatboxSrc"] ?> 
+            onload="applyStyles(this)"
+        >
         </iframe>
 
 	</div>
 
+    <!-- <canvas id="canvas">
+		Sakura petals
+	</canvas> -->
+
+</body>
 
 <?php
     require_once("partials/footer.php");

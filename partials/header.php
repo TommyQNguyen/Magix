@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Magix</title>
-        <link rel="stylesheet" href="css/global.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/index.css?v=<?php echo time(); ?>">
 		<!-- <link rel="stylesheet" rel="stylesheet" href="css/game.css"> -->
 		<link rel="stylesheet" href="css/game.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="css/blog.css?v=<?php echo time(); ?>">
@@ -17,13 +17,13 @@
 
     <div class="menu">
 		<ul>
-			<li><a href="index.php">Page index.php</a></li>
+			<!-- <li><a href="index.php">Page index.php</a></li> -->
 			<?php
 				if ($data["isLoggedIn"]) {
 					?>
-					<li><a href="lobby.php">Page Lobby.php</a></li>
+					<!-- <li><a href="lobby.php">Page Lobby.php</a></li>
 					<li><a href="?logout=true">Déconnexion</a></li>
-					<li><a href="blog.php">Blog</a></li>
+					<li><a href="blog.php">Blog</a></li> -->
 					<?php
 				}
 			?>

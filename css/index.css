@@ -59,8 +59,9 @@
 	width: 300px;
 	border-radius: 3px;
 	padding: 10px;
-	background: linear-gradient(rgb(16, 167, 226), #ac1aac); 
+	background: linear-gradient(rgb(16, 167, 226, 0.4), #ac1aac); 
     text-align: center;
+    color: whitesmoke;
 }
 
 #container {
@@ -73,9 +74,15 @@
 #index-button {
     padding: 5px;
     background-color: pink;
-    color: white;
+    color: darkslategrey;
     border-radius: 10px;
     border: 1px solid pink;
+    transition: all .2s ease-in-out;
+}
+
+#index-button:hover {
+    top: -10px;
+    transform: scale(1.1);
 }
 
 /* canvas {

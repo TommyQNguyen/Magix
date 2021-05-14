@@ -1,3 +1,17 @@
+const applyStyles = iframe => {
+	let styles = {
+		fontColor : "#333",
+		backgroundColor : "rgba(255, 192, 205, 0.5)",
+		fontGoogleName : "Source Code Pro",
+		fontSize : "20px",
+		// hideIcons : false (or true),
+		inputBackgroundColor : "rgba(255, 255, 255, 0.2)",
+		inputFontColor : "black"
+	}
+	
+	iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
+}
+
 let canvas = null;
 let ctx = null;
 
