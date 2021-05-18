@@ -1,3 +1,21 @@
+const applyStyles = iframe => {
+	let styles = {
+		fontColor : "#333",
+		backgroundColor : "rgba(255, 192, 205, 0.5)",
+		fontGoogleName : "Source Code Pro",
+		fontSize : "20px",
+		hideIcons : true,
+		inputBackgroundColor : "rgba(255, 255, 255, 0.2)",
+		inputFontColor : "white"
+	}
+	
+	iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
+}
+
+document.getElementById("show-chatbox-button").addEventListener("click", () => {
+    document.querySelector("iframe").display = "flex";
+})
+
 let attacker = "";
 
 const state = () => {
@@ -9,12 +27,25 @@ const state = () => {
     .then(data => {
         console.log(data);          // contient les cartes/état du jeu.
 
-        // setTimeout(state, 1000);    // Attendre 1 seconde avant de relancer l’appel
+        setTimeout(state, 1000);    // Attendre 1 seconde avant de relancer l’appel
 
-        if (data !== "WAITING") {
+        if (data === "LAST_GAME_LOST") {
+            document.querySelector("#game-status").innerText = "LAST GAME LOST";
+            document.querySelector("#game-status").style.display = "block";
+            console.log("Game is lost dammit");
+        } 
+        else if (data === "LAST_GAME_WON") {
+            document.querySelector("#game-status").innerText = "LAST GAME WON";
+            document.querySelector("#game-status").style.display = "block";
+        }
+        else if (data === "WAITING") {
+            document.querySelector("#game-status").innerText = "WAITING";
+            document.querySelector("#game-status").style.display = "block";
+        }
+        else if (data !== "WAITING") {
 
             const NODE_REMAINING_TURN_TIME = document.querySelector("#remaining-turn-time");
-            NODE_REMAINING_TURN_TIME.innerText = data.remainingTurnTime;
+            NODE_REMAINING_TURN_TIME.innerText = `Timer: ${data.remainingTurnTime}`;
 
             const NODE_YOUR_TURN = document.querySelector("#your-turn");
             NODE_YOUR_TURN.innerText = `Your turn: ${data.yourTurn}`;
@@ -31,7 +62,10 @@ const state = () => {
                 div.className = "enemy-card";
                 div.style.height = "100px";
                 div.style.width = "50px";
-                div.style.backgroundColor = "magenta";
+                div.style.backgroundImage = "url('images/cardRemainingBack.webp')";
+                div.style.backgroundPositionX = "center bottom";
+                div.style.backgroundRepeat = "no-repeat";
+                div.style.backgroundSize = "cover";
                 div.style.margin = "5px";
                 
                 NODE_ENEMY_CARDS.append(div);
@@ -53,7 +87,7 @@ const state = () => {
                 enemyBoardCard.innerHTML = templateHTML;
                 enemyBoardCard.querySelector(".attack").innerText = `${enemyCard.atk}⚔️`;
                 enemyBoardCard.querySelector(".hp").innerText = `${enemyCard.hp}❤️`;
-                enemyBoardCard.querySelector(".cost").innerText = `${enemyCard.cost}⭐`;
+                // enemyBoardCard.querySelector(".cost").innerText = `${enemyCard.cost}⭐`;
 
                 const cardMechanics = enemyCard.mechanics.map (mechanic => mechanic);
                 enemyBoardCard.addEventListener("click", () => { 
@@ -75,9 +109,12 @@ const state = () => {
             document.querySelector(".enemy-user").addEventListener("click", () => { 
                 attackEvent(attacker, 0);
             });
-            document.querySelector(".enemy-hp").innerText = `${data.opponent.hp}❤️`;
-            document.querySelector(".enemy-mp").innerText = `${data.opponent.mp} MP`;
-            document.querySelector(".enemy-remaining-cards").innerText = data.opponent.remainingCardsCount;
+            document.querySelector(".enemy-hp").innerText = `❤️ x ${data.opponent.hp}`;
+            document.querySelector(".enemy-mp").innerText = `🔮 x ${data.opponent.mp}`;
+
+        
+            document.querySelector("#enemy-remaining-cards-qty").innerText = `x ${data.opponent.remainingCardsCount}`;
+            
 
 
             /* -------------------------------------------------------------------------- */
@@ -93,9 +130,9 @@ const state = () => {
                 let boardCard = document.createElement("div");
                 boardCard.className = "player-board-card";
                 boardCard.innerHTML = templateHTML;
-                boardCard.querySelector(".attack").innerText = playerBoardCard.atk;
-                boardCard.querySelector(".hp").innerText = playerBoardCard.hp;
-                boardCard.querySelector(".cost").innerText = playerBoardCard.cost;
+                boardCard.querySelector(".attack").innerText = `${playerBoardCard.atk}⚔️`;
+                boardCard.querySelector(".hp").innerText = `${playerBoardCard.hp}❤️`;
+                // boardCard.querySelector(".cost").innerText = `${playerBoardCard.cost}🔮;
 
                 if (data.yourTurn && playerBoardCard.state !== "SLEEP") {
                     boardCard.style.boxShadow = "5px 0px 50px 10px chartreuse";
@@ -150,14 +187,11 @@ const state = () => {
             })
 
             // Player stats
-            document.querySelector(".player-hp").innerText = `${data.hp}❤️`;
-            document.querySelector(".player-mp").innerText = `${data.mp} MP`;
-            document.querySelector(".player-remaining-cards").innerText = `${data.remainingCardsCount} cards remaining`;
+            document.querySelector(".player-hp").innerText = `❤️ x ${data.hp}`;
+            document.querySelector(".player-mp").innerText = `🔮 x ${data.mp}`;
+            document.querySelector(".player-remaining-cards").innerText = `x ${data.remainingCardsCount}`;
     }
-    else if (data ) {
-        document.querySelector("#game-status").innerText = "GAME LOST";
-        console.log("Game is lost dammit");
-    }
+    
 
 
     })
@@ -201,7 +235,7 @@ const heroPowerEvent = () => {
         })
     .then(response => response.json())
     .then(data => {
-        console.log(data);          // contient les cartes/état du jeu.
+        console.log(data);          
     })
     .catch(console.log);
 }
@@ -220,7 +254,7 @@ const playEvent = (cardId) => {
         })
     .then(response => response.json())
     .then(data => {
-        console.log(data);          // contient les cartes/état du jeu.
+        console.log(data);          
     })
     .catch(console.log);
 }
@@ -240,7 +274,7 @@ const attackEvent = (cardId, targetId) => {
         })
     .then(response => response.json())
     .then(data => {
-        console.log(data);          // contient les cartes/état du jeu.
+        console.log(data);          
     })
     .catch(console.log);
 }

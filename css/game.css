@@ -1,16 +1,12 @@
 #game-body {
     background-image: url("../images/game-background.jpg");
-	/* background-color: darkslategrey; */
+	background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-}
-
-#game-status {
-	color: white;
-	background-color: plum;
-	height: 50px;
 }
 
 #enemy-section {
@@ -30,8 +26,9 @@
 }
 
 .enemy-board-card {
-    border: 2px solid black;
-	background-color: cyan;
+    border: 2px solid wheat;
+	color: ghostwhite;
+	background-color: rgba(231, 15, 87, 0.753);
 	/* padding:30px; */
 	/* text-align:center; */
 	margin:0 10px;
@@ -44,8 +41,15 @@
 
 #enemy-details {
     display: flex;
-	align-items: center;
+	/* align-items: center; */
+	/* flex-direction: column; */
+}
+
+.enemy-profile-container {
+	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #enemy-avatar {
@@ -55,8 +59,24 @@
 	border-radius: 50%;
 }
 
+.enemy-hp-mp-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .enemy-hp, .enemy-user, .enemy-mp {
     margin: 5px;
+	color: white;
+	font-size: 24px;
+}
+
+.enemy-remaining-cards-container img {
+	width: 50px;
+	height: auto;
+}
+
+.enemy-remaining-cards-container #enemy-remaining-cards-qty {
 	color: white;
 }
 
@@ -68,9 +88,19 @@
 
 #player-section #player-details {
     display: flex;
+	/* justify-content: space-between; */
+	color: white;
+	font-size: 24px;
+}
+
+.player-hp-mp-container {
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	color: white;
+}
+
+.player-remaining-cards-container img {
+	width: 50px;
 }
 
 #player-board-cards-container {
@@ -79,8 +109,9 @@
 }
 
 .player-board-card {
-    border: 2px solid black;
-	background-color: mediumseagreen;
+    border: 2px solid snow;
+	color: ghostwhite;
+	background-color: rgba(90, 14, 231, 0.822);
 	/* padding:30px; */
 	/* text-align:center; */
 	margin:0 10px;
@@ -100,21 +131,31 @@
 }
 
 .player-card {
-	border: 2px solid black;
-	background-color: greenyellow;
-	/* padding:30px; */
+	border: 2px solid snow;
+	color: seashell;
+	background-color: rgba(122, 11, 226, 0.829);
 	text-align:center;
 	margin:0 10px;
 	transition: 1s;
-	/* box-shadow: 0 0 10px white; */
 	width: 140px;
 	height: 180px;
 }
 
-#player-actions-container {
+.player-actions-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+.player-actions-container button {
+	padding: 5px 10px;
+	color: antiquewhite;
+	background-color:rgba(177, 19, 156, 0.616);
+	border: 2px solid magenta;
+}
+
+.player-actions-container button:hover {
+	background-color:rgba(8, 234, 241, 0.616);
 }
 
 #cards-template-stats-container {
@@ -128,4 +169,20 @@
 
 #remaining-turn-time, #your-turn {
 	color: white;
+}
+
+#game-status {
+	display: none;
+	font-size: 50px;
+	color: snow;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+}
+
+iframe {
+	display: none;
 }

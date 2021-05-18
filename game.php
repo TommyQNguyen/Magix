@@ -8,45 +8,63 @@
 	$action = new GameAction();
 	$data = $action->execute();
 
-    // echo '<pre>';
-	// var_dump($_SESSION);
-	// echo '</pre>';
-
-
 	// require_once("partials/header.php");
 ?>
 
 <body id="game-body">
 
-	<!-- <h1 id="game-status"></h1> -->
+	<h1 id="game-status"></h1>
 
 	<section id="enemy-section">
 		<div id="enemy-cards-container"></div>
 
 		<div id="enemy-details">
-			<img id="enemy-avatar" alt="Enemy photo"/>
-			<div class="enemy-user"></div>
-			<div class="enemy-hp"></div>
-			<div class="enemy-mp"></div>
+			<div class="enemy-profile-container">
+				<img id="enemy-avatar" alt="Enemy photo"/>
+				<div class="enemy-user"></div>
+			</div>
+
+			<div class="enemy-hp-mp-container">
+				<div class="enemy-hp"></div>
+				<div class="enemy-mp"></div>
+			</div>
 		</div>
 
-		<div class="enemy-remaining-cards"></div>
+		<div class="enemy-remaining-cards-container">
+			<img src="images/cardRemainingBack.webp" alt="Card Remaining" />
+			<div id="enemy-remaining-cards-qty"></div>
+		</div>
 	</section>
 
 	<div id="enemy-board-cards-container"></div>
+
+	<!-- <button id="show-chatbox-button">Show chatbox</button> -->
+
+	<!-- <iframe 
+		style="width:700px; height:240px;" 
+		src=<?= $data["chatboxSrc"] ?> 
+		onload="applyStyles(this)"
+	>
+	</iframe> -->
 
 	<div id="player-board-cards-container"></div>
 
 	<section id="player-section">
 		<div id="player-details">
-			<div class="player-hp"></div>
-			<div class="player-mp"></div>
-			<div class="player-remaining-cards"></div>
+			<div class="player-remaining-cards-container">
+				<img src="images/cardRemainingBack.webp" alt="Player remaining cards">
+				<div class="player-remaining-cards"></div>
+			</div>
+
+			<div class="player-hp-mp-container">
+				<div class="player-hp"></div>
+				<div class="player-mp"></div>
+			</div>
 		</div>
 
 		<div id="player-cards-container"></div>
 		
-		<div id="player-actions-container">
+		<div class="player-actions-container">
 			<button id="hero-power">Hero Power</button>
 
 			<div>
@@ -74,6 +92,8 @@
 		<div class='mechanics'></div>
 		
 	</template>
+
+	<div id="game-status">You Lose!</div>
 
 </body>
 

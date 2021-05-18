@@ -4,8 +4,43 @@
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 #lobby-welcome {
     background-color: coral;
 }
+
+#lobby-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+}
+
+.lobby-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    
+}
+
+.lobby-button-container button {
+    padding: 15px 40px;
+    background-color: slateblue;
+    opacity: 0.9;
+    border: 2px solid darkslateblue;
+    border-radius: 20px;
+}
+
+.lobby-button-container button:hover {
+    background-color: gold;
+}
+
+.lobby-button-container button a {
+    text-decoration: none;
+    font-size: 28px;
+    color: ghostwhite;
+}
+

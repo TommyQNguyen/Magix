@@ -1,6 +1,18 @@
 let spriteList = [];
 
 window.addEventListener("load", () => {
+
+    const NODE_INDEX_BUTTON = document.querySelector("#index-button");
+    const NODE_INDEX_USERNAME = document.querySelector("#username");
+
+    // NODE_INDEX_USERNAME.value = "Test";
+
+    NODE_INDEX_BUTTON.addEventListener("click", () => {
+        
+        // console.log(NODE_INDEX_USERNAME.value);
+        window.localStorage.setItem('username', JSON.stringify(NODE_INDEX_USERNAME.value));
+        console.log(window.localStorage.getItem('username'));
+    })
     
     spriteList.push(new Umbrella(0, 0));
     spriteList.push(new Umbrella(0, 375));

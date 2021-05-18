@@ -21,6 +21,8 @@
 				$data["key"] = $_SESSION["key"];
 
 				$result = CommonAction::callAPI("signout", $data);
+				header("location:index.php");
+				exit;
 
 				if ($result == "INVALID_KEY") {
 					// err

@@ -9,20 +9,18 @@
 
 		protected function executeAction() {
 
-            // $key = $_SESSION["key"];
+			// Prendre la cle de session pour pouvoir render le chatbox dans la vue
+            $key = $_SESSION["key"];
+            $chatboxSrc = "https://magix.apps-de-cours.com/server/#/chat/" . $key;
 
-            // $chatboxSrc = "https://magix.apps-de-cours.com/server/#/chat/" . $key;
-			$key = $_SESSION["key"];
+			// $key = $_SESSION["key"];
 
             // API Call
             $data = [];
             $data["key"] = $_SESSION["key"];
 
             $result = parent::callAPI("games/state", $data);
-			// var_dump($result);
 
-            return compact("result");
-
-			// return [];
+            return compact("result", "chatboxSrc");
 		}
 	}

@@ -9,8 +9,6 @@
 		<link rel="stylesheet" href="css/game.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="css/blog.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="css/editBlog.css?v=<?php echo time(); ?>">
-        <!-- <script src="js/sprites/Mole.js"></script> -->
-        <!-- <script src="js/sprites/Tractor.js"></script> -->
         <!-- <script src="js/javascript.js"></script> -->
     </head>
     <body>
