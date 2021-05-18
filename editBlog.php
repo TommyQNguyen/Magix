@@ -1,10 +1,12 @@
+<link rel="stylesheet" href="css/editBlog.css?v=<?php echo time(); ?>">
+
 <?php
     require_once("action/EditBlogAction.php");
 
     $action = new EditBlogAction();
     $data = $action->execute();
 
-    require_once("partials/header.php");
+    // require_once("partials/header.php");
 ?>
 <h1 id="edit-blog-page-title">Vous pouvez modifer votre contenu ici!</h1>
 
@@ -31,7 +33,9 @@
 
 
                     <button id="button-save-edit">Sauvegarder</button>
+                    
                 </form>
+                <button id="edit-blog-btn-return"><a href="blog.php?id=1">Retour au blog</a></button>
 
                 <?php 
                     if ($data["savedSuccessfully"]) {

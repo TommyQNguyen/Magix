@@ -8,9 +8,9 @@
     $action = new LobbyAction();
     $data = $action->execute();
 
-    echo '<pre>';
+    // echo '<pre>';
 	// var_dump($_SESSION);
-	echo '</pre>';
+	// echo '</pre>';
 
     require_once("partials/header.php");
 ?>
@@ -27,6 +27,7 @@
         <div class="lobby-button-container">
             <button><a href="?pratique=true">Pratique</a></button>
             <button><a href="?jouer=true">Jouer</a></button>
+            <button><a href="blog.php?id=1">Blog</a></button>
             <button><a href="?logout=true">Quitter</a></button>
         </div>
 

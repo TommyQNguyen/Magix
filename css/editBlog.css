@@ -12,9 +12,8 @@
 	width: 80%;
     height: 80%;
     margin: auto;
-    display: flex;
-    background-color: black; /* Fallback color */
-    background-color: rgba(211, 32, 235, 0.4); /* Black w/opacity/see-through */
+    background-color: black; 
+    background-color: rgba(211, 32, 235, 0.4); 
     border: 3px solid #f1f1f1;
 }
 
@@ -49,6 +48,19 @@
 	border: fuchsia;
 	color: ghostwhite;
 	text-transform: uppercase;
+}
+
+#edit-blog-btn-return {
+	padding: 10px;
+	font-size: 20px;
+	background-color: royalblue;
+	border: 2px solid blue;
+	text-transform: uppercase;
+}
+
+#edit-blog-btn-return a {
+	text-decoration: none;
+	color: seashell;
 }
 
 #button-save-edit:hover {

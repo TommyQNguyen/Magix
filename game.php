@@ -13,7 +13,14 @@
 
 <body id="game-body">
 
-	<h1 id="game-status"></h1>
+	
+
+	<div class="game-status-container">
+		<h1 id="game-status"></h1>
+		<button><a href="lobby.php">Return to Lobby</a></button>
+	</div>
+
+	<h1 id="game-error-message"></h1>
 
 	<section id="enemy-section">
 		<div id="enemy-cards-container"></div>
@@ -93,7 +100,7 @@
 		
 	</template>
 
-	<div id="game-status">You Lose!</div>
+	<!-- <div id="game-status">You Lose!</div> -->
 
 </body>
 

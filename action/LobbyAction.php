@@ -33,7 +33,7 @@
                 else {
                     // Pour voir les informations retournées : var_dump($result);exit;
                     var_dump($result);
-					// header("location:game.php");
+					header("location:game.php");
 					exit;
                 }
 
@@ -56,8 +56,10 @@
                     var_dump($result);
                 }
                 else {
+                    // Pour voir les informations retournées : var_dump($result);exit;
                     var_dump($result);
-					exit;
+					// header("location:game.php");
+					// exit;
                 }
 			}
 

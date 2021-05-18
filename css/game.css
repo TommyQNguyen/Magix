@@ -171,7 +171,31 @@
 	color: white;
 }
 
-#game-status {
+.game-status-container {
+	display: none;
+	font-size: 50px;
+	color: snow;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+}
+
+/* #game-status {
+	display: none;
+	font-size: 50px;
+	color: snow;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+} */
+
+#game-error-message {
 	display: none;
 	font-size: 50px;
 	color: snow;
@@ -184,5 +208,5 @@
 }
 
 iframe {
-	display: none;
+	/* display: none; */
 }

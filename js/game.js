@@ -12,9 +12,9 @@ const applyStyles = iframe => {
 	iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
 }
 
-document.getElementById("show-chatbox-button").addEventListener("click", () => {
-    document.querySelector("iframe").display = "flex";
-})
+// document.getElementById("show-chatbox-button").addEventListener("click", () => {
+//     document.querySelector("iframe").display = "flex";
+// })
 
 let attacker = "";
 
@@ -31,21 +31,22 @@ const state = () => {
 
         if (data === "LAST_GAME_LOST") {
             document.querySelector("#game-status").innerText = "LAST GAME LOST";
-            document.querySelector("#game-status").style.display = "block";
+            document.querySelector(".game-status-container").style.display = "block";
             console.log("Game is lost dammit");
         } 
         else if (data === "LAST_GAME_WON") {
             document.querySelector("#game-status").innerText = "LAST GAME WON";
-            document.querySelector("#game-status").style.display = "block";
+            document.querySelector(".game-status-container").style.display = "block";
         }
         else if (data === "WAITING") {
-            document.querySelector("#game-status").innerText = "WAITING";
-            document.querySelector("#game-status").style.display = "block";
+            // document.querySelector("#game-status").innerText = "WAITING";
+            // document.querySelector(".game-status-container").style.display = "block";
+            console.log("Waiting");
         }
         else if (data !== "WAITING") {
 
             const NODE_REMAINING_TURN_TIME = document.querySelector("#remaining-turn-time");
-            NODE_REMAINING_TURN_TIME.innerText = `Timer: ${data.remainingTurnTime}`;
+            NODE_REMAINING_TURN_TIME.innerText = `⌛ ${data.remainingTurnTime} ⌛`;
 
             const NODE_YOUR_TURN = document.querySelector("#your-turn");
             NODE_YOUR_TURN.innerText = `Your turn: ${data.yourTurn}`;
@@ -106,6 +107,10 @@ const state = () => {
 
             // Enemy stats
             document.querySelector(".enemy-user").innerText = data.opponent.username;
+
+            document.querySelector("#enemy-avatar").addEventListener("click", () => { 
+                attackEvent(attacker, 0);
+            });
             document.querySelector(".enemy-user").addEventListener("click", () => { 
                 attackEvent(attacker, 0);
             });
@@ -254,7 +259,14 @@ const playEvent = (cardId) => {
         })
     .then(response => response.json())
     .then(data => {
-        console.log(data);          
+        console.log(data);    
+        if (data === "NOT_ENOUGH_POWER") {
+            document.querySelector("#game-error-message").innerText = "NOT ENOUGH POWER";
+            document.querySelector("#game-error-message").style.display = "block";
+        }  
+        else {
+            document.querySelector("#game-error-message").style.display = "none";
+        }    
     })
     .catch(console.log);
 }

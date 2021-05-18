@@ -1,7 +1,7 @@
 #blog-body {
     background-image: url("../images/pinkmarble.jpg");
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 #blog-wrapper {
@@ -17,6 +17,21 @@
 #page-title {
     text-align: center;
     color: honeydew;
+}
+
+#blog-button-return-lobby {
+    margin: auto;
+    padding: 20px 30px;
+    width: 500px;
+    background-color: teal;
+}
+
+#blog-button-return-lobby a {
+    text-decoration: none;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: snow;
+    font-weight: bold;
 }
 
 main {

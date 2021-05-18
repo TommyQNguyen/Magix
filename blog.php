@@ -1,12 +1,15 @@
+<link rel="stylesheet" href="css/blog.css?v=<?php echo time(); ?>">
+
 <?php
     require_once("action/BlogAction.php");
 
     $action = new BlogAction();
     $data = $action->execute();
 
-    require_once("partials/header.php");
+    // require_once("partials/header.php");
 ?>
 <h1 id="page-title">Bienvenue au guide de stratégie de Magix!</h1>
+<button id="blog-button-return-lobby"><a href="lobby.php">Retour au lobby</a></button>
 
 <body id="blog-body">
 
@@ -65,10 +68,11 @@
 
                     <button id="button-save-comment">Envoyer</button>
                 </form>
+                
         </main>
 
         <aside class="blog-summary-container">
-            <h2 id="blog-summary-title">🌸 Les articles du blog 🌸<h2>
+            <h2 id="blog-summary-title">📝 Les articles du blog 📝<h2>
 
             <?php
                 if (sizeof($data["blogPosts"]) > 0) {
