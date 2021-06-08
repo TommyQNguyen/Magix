@@ -3,5 +3,5 @@ The game is heavily inspired by Hearthstone, by Blizzard Entertainment. It's bas
 
 ## Tech stack used
 
-It's primarily written in PHP with the help of the WAMP Server. The game fetches data such as the game status, the cards in-hand or on the board with the help of JavaScript and AJAX.
+It's primarily written in PHP with the help of the WAMP Server. The game fetches data such as the game status, the cards in-hand or on the board with the help of JavaScript and AJAX by calling the Magix API.
 A blog section has been added and uses MySQL to store the users' blog post and the visitors' comments.
