@@ -1,7 +1,3 @@
-# Nom
-
-Tommy Quang Nguyen
-
 ## Brief explanation of the game
 The game is heavily inspired by Hearthstone, by Blizzard Entertainment. It's basically a card game where you can pick cards and attack your opponent based on your HP, HP, and card status.
 
